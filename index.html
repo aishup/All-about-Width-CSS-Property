@@ -1,0 +1,152 @@
+<html>
+<head>
+	<title> Difference between width:auto and width:100% </title>
+	<style>
+		#parent {
+			background-color: red;
+            width: 320px;
+            padding: 20px;
+            border: 5px dotted #000;
+            margin: 10px;
+		}
+        #child {
+            background: yellow;
+            width: 320px;
+            padding: 20px;
+            border: 5px dotted #000;
+            margin: 10px;
+        }
+		#child1 {
+			background: yellow;
+			width: auto;
+            padding: 20px;
+            border: 5px dotted #000;
+            margin: 20px;
+		}
+		#child2 {
+			background: yellow;
+			width: 100%;
+            padding: 20px;
+            border: 5px dotted #000;
+            margin: 10px;
+		}
+	</style>
+<head>
+	<body>
+        <br>
+        <h1><u>Difference between width:auto and width:100%</u></h1>
+        <ul>
+            <li>
+        		<h2 style="color:#000080;">Example without any width property(auto/100%) on Child Container</h2>
+
+                    <p><i>Here child container floats outside the parent container.</i></p>
+                    <p style="font-size:15px;line-height:18px;"> 
+                            <b>CSS Box properties of Parent Container:</b>
+                            <ul>
+                             <li> width: 320px;</li>
+                             <li> padding: 20px;</li> 
+                             <li> border: 5px dotted #000;</li>
+                             <li> margin: 10px;</li> 
+                             </ul>
+                             <br>
+                            <b>Total Width</b> = Left-Margin + Left-Border + Left-Padding + Content-Width + Right-Padding + Right-Border + Right-Margin<br>
+                            &#x2001;&#x2001;&#x2001;&#x2001;&#x2001;&nbsp;&nbsp;= 10 + 5 + 20 + 320 + 20 + 5 + 10<br>   
+                            &#x2001;&#x2001;&#x2001;&#x2001;&#x2001;&nbsp;&nbsp;= 390px;
+                    </p>
+                    <p style="font-size:15px;line-height:18px;"> 
+                            <b>CSS Box properties of Child Container:</b>
+                            <ul>
+                             <li> width: 320px;</li>
+                             <li> padding: 20px;</li> 
+                             <li> border: 5px dotted #000;</li>
+                             <li> margin: 10px;</li> 
+                             </ul>
+                             <br>
+                            <b>Total Width</b> = Left-Margin + Left-Border + Left-Padding + Content-Width + Right-Padding + Right-Border + Right-Margin<br>
+                            &#x2001;&#x2001;&#x2001;&#x2001;&#x2001;&nbsp;&nbsp;= 10 + 5 + 20 + 320 + 20 + 5 + 10<br>   
+                            &#x2001;&#x2001;&#x2001;&#x2001;&#x2001;&nbsp;&nbsp;= 390px;
+                    </p>
+        			<div id="parent">
+        			Parent container
+                        <div id="child">
+                            Child Container
+                        </div>
+        			</div>
+            </li>
+            <li>
+                <h2 style="color:#000080;">Example with the property width:auto on Child Container</h2>
+                <p><i>Here the width of the child container does not consider padding, border and margin pixels. It calculates the content of the width in such a way that the child container is inside the parent container and does not float outside.</i></p>
+                <p><i>To find out how it calculating with the width:auto, refer the article - https://www.w3.org/TR/CSS21/visudet.html#blockwidth</i></p>
+                    <p style="font-size:15px;line-height:18px;"> 
+                            <b>CSS Box properties of Parent Container:</b>
+                            <ul>
+                             <li> width: 320px;</li>
+                             <li> padding: 20px;</li> 
+                             <li> border: 5px dotted #000;</li>
+                             <li> margin: 10px;</li> 
+                             </ul>
+                             <br>
+                            <b>Total Width</b> = Left-Margin + Left-Border + Left-Padding + Content-Width + Right-Padding + Right-Border + Right-Margin<br>
+                            &#x2001;&#x2001;&#x2001;&#x2001;&#x2001;&nbsp;&nbsp;= 10 + 5 + 20 + 320 + 20 + 5 + 10<br>   
+                            &#x2001;&#x2001;&#x2001;&#x2001;&#x2001;&nbsp;&nbsp;= 390px;
+                    </p>
+                    <p style="font-size:15px;line-height:18px;"> 
+                            <b>CSS Box properties of Child Container:</b>
+                            <ul>
+                             <li> width: auto;</li>
+                             <li> padding: 20px;</li> 
+                             <li> border: 5px dotted #000;</li>
+                             <li> margin: 10px;</li> 
+                             </ul>
+                             <br>
+                            <b>Total Width</b> = Left-Margin + Left-Border + Left-Padding + Content-Width + Right-Padding + Right-Border + Right-Margin<br>
+                            &#x2001;&#x2001;&#x2001;&#x2001;&#x2001;&nbsp;&nbsp;= 20 + 5 + 20 + 230 + 20 + 5 + 20<br>   
+                            &#x2001;&#x2001;&#x2001;&#x2001;&#x2001;&nbsp;&nbsp;= 320px;
+                    </p>
+                    <div id="parent">
+                    Parent container
+                        <div id="child1">
+                            Child Container
+                        </div>
+                    </div>
+            </li>
+            <li>
+        		<h2 style="color:#000080;">Example with the property width:100% on Child Container </h2>
+
+                <p><i>Here the width of the child container considers padding, border and margin pixels. It calculates the content of the width by adding padding, border and margin. Finally the child container floats outside the parent container.</i></p>
+                <p><i>To find out how it calculating with the width:100%, refer the article - xxxx </i></p>
+                    <p style="font-size:15px;line-height:18px;"> 
+                            <b>CSS Box properties of Parent Container:</b>
+                            <ul>
+                             <li> width: 320px;</li>
+                             <li> padding: 20px;</li> 
+                             <li> border: 5px dotted #000;</li>
+                             <li> margin: 10px;</li> 
+                             </ul>
+                             <br>
+                            <b>Total Width</b> = Left-Margin + Left-Border + Left-Padding + Content-Width + Right-Padding + Right-Border + Right-Margin<br>
+                            &#x2001;&#x2001;&#x2001;&#x2001;&#x2001;&nbsp;&nbsp;= 10 + 5 + 20 + 320 + 20 + 5 + 10<br>   
+                            &#x2001;&#x2001;&#x2001;&#x2001;&#x2001;&nbsp;&nbsp;= 390px;
+                    </p>
+                    <p style="font-size:15px;line-height:18px;"> 
+                            <b>CSS Box properties of Child Container:</b>
+                            <ul>
+                             <li> width: auto;</li>
+                             <li> padding: 20px;</li> 
+                             <li> border: 5px dotted #000;</li>
+                             <li> margin: 10px;</li> 
+                             </ul>
+                             <br>
+                            <b>Total Width</b> = Left-Margin + Left-Border + Left-Padding + Content-Width + Right-Padding + Right-Border + Right-Margin<br>
+                            &#x2001;&#x2001;&#x2001;&#x2001;&#x2001;&nbsp;&nbsp;= 10 + 5 + 20 + 320 + 20 + 5 + 10<br>   
+                            &#x2001;&#x2001;&#x2001;&#x2001;&#x2001;&nbsp;&nbsp;= 390px;
+                    </p>
+        			<div id="parent">
+        			Parent container
+        				<div id="child2">
+        					Child Container
+        				</div>
+        			</div>
+            </li>
+	</body>
+</html>
